@@ -33,13 +33,13 @@
       <span>
         <span v-if="!fields.CapacityReached && fields.Available > 0">~</span>
         {{ fields.CapacityReached ? 0 : fields.Available }} /
-        {{ fields.Capacity }} Swimming Slots Available
+        {{ fields.Capacity }} Slots Available
       </span>
     </div>
   </div>
 
   <div v-else class="alert alert-info" role="alert">
-    There are no swim sessions at this time.
+    There are no slots available at this time.
   </div>
 </template>
 
