@@ -12,6 +12,7 @@
       class="alert text-center d-flex flex-column flex-md-row justify-content-between"
       :class="
         fields.InclementWeather ||
+        fields.Flooding ||
         fields.CapacityReached ||
         fields.Available <= 0
           ? 'alert-warning'
@@ -26,6 +27,7 @@
       </span>
 
       <strong v-if="fields.InclementWeather"> Severe Weather </strong>
+      <strong v-if="fields.Flooding"> Flooding </strong>
       <strong v-else-if="fields.CapacityReached || fields.Available <= 0">
         Capacity Limit Reached
       </strong>
@@ -44,7 +46,7 @@
 </template>
 
 <script>
-import { sessions, fetchSessions } from '../lib/sessions'
+import { sessions, fetchSessions } from "../lib/sessions";
 
 export default {
   props: {
@@ -52,9 +54,9 @@ export default {
   },
 
   setup(props) {
-    fetchSessions(props.sitecoreItemId)
+    fetchSessions(props.sitecoreItemId);
 
-    return { sessions }
+    return { sessions };
   },
-}
+};
 </script>
