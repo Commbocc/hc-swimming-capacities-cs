@@ -1,24 +1,24 @@
-import { createWebHashHistory, createRouter } from 'vue-router'
-import Home from '../views/index.vue'
-import Location from '../views/location.vue'
+import { createWebHashHistory, createRouter } from "vue-router";
+import Home from "../views/index.vue";
+import Location from "../views/location.vue";
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     component: Home,
   },
   {
-    path: '/:sitecoreItemId',
-    name: 'Location',
+    path: "/:slug",
+    name: "Location",
     component: Location,
     props: true,
   },
-]
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
-})
+});
 
-export default router
+export default router;

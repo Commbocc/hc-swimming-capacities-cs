@@ -1,3 +1,19 @@
+<script>
+import { sessions, fetchSessions } from "../lib/sessions";
+
+export default {
+  props: {
+    slug: String,
+  },
+
+  setup(props) {
+    fetchSessions(props.slug);
+
+    return { sessions };
+  },
+};
+</script>
+
 <template>
   <div v-if="sessions.loading" class="text-center my-5">
     <div class="spinner-border" role="status">
@@ -44,19 +60,3 @@
     There are no slots available at this time.
   </div>
 </template>
-
-<script>
-import { sessions, fetchSessions } from "../lib/sessions";
-
-export default {
-  props: {
-    sitecoreItemId: String,
-  },
-
-  setup(props) {
-    fetchSessions(props.sitecoreItemId);
-
-    return { sessions };
-  },
-};
-</script>

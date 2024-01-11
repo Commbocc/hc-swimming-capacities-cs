@@ -1,3 +1,14 @@
+<script>
+import { locations, fetchLocations } from "../lib/locations";
+
+export default {
+  setup() {
+    fetchLocations();
+    return { locations };
+  },
+};
+</script>
+
 <template>
   <div v-if="locations.loading" class="text-center my-5">
     <div class="spinner-border" role="status">
@@ -9,7 +20,7 @@
     <router-link
       v-for="{ id, fields } in locations.data"
       :key="id"
-      :to="{ name: 'Location', params: { sitecoreItemId: fields.GUID } }"
+      :to="{ name: 'Location', params: { slug: fields.slug || '#' } }"
       class="list-group-item list-group-item-action"
     >
       {{ fields.name }}
@@ -20,14 +31,3 @@
     No locations are offering programming at this time.
   </div>
 </template>
-
-<script>
-import { locations, fetchLocations } from '../lib/locations'
-
-export default {
-  setup() {
-    fetchLocations()
-    return { locations }
-  },
-}
-</script>
