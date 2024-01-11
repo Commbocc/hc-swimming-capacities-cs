@@ -3,11 +3,11 @@ import { sessions, fetchSessions } from "../lib/sessions";
 
 export default {
   props: {
-    slug: String,
+    UID: String,
   },
 
   setup(props) {
-    fetchSessions(props.slug);
+    fetchSessions(props.UID);
 
     return { sessions };
   },

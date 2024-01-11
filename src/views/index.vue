@@ -20,7 +20,7 @@ export default {
     <router-link
       v-for="{ id, fields } in locations.data"
       :key="id"
-      :to="{ name: 'Location', params: { slug: fields.slug || '#' } }"
+      :to="{ name: 'Location', params: { UID: fields.UID || '#' } }"
       class="list-group-item list-group-item-action"
     >
       {{ fields.name }}

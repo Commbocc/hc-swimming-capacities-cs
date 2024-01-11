@@ -7,12 +7,12 @@ export const sessions = reactive({
   data: [],
 });
 
-export async function fetchSessions(slug) {
+export async function fetchSessions(UID) {
   sessions.loading = true;
   try {
     const { data } = await airtable.get(`/sessions`, {
       params: {
-        filterByFormula: `ARRAYJOIN({LocationSlug}) = '${slug}'`,
+        filterByFormula: `ARRAYJOIN({LocationUID}) = '${UID}'`,
         view: "Grid view",
       },
     });
